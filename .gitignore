@@ -1,1 +1,29 @@
+# Arquivos Java compilados
+*.class
 
+
+# Pastas de compilacao
+bin/
+out/
+build/
+target/
+
+
+# Configuracoes da IDE
+.idea/
+*.iml
+
+
+# Arquivos temporarios
+*.log
+*.tmp
+
+
+# Arquivos com credenciais
+.env
+
+
+# Bancos locais gerados
+*.db
+*.sqlite
+*.sqlite3
