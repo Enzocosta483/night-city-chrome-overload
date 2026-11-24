@@ -1,19 +1,16 @@
 public class SoldadoCorporativo extends Inimigo {
 
-    private int ataquesRealizados = 0;
+    private int ataquesRealizados;
 
     public SoldadoCorporativo() {
-        super("Soldado Corporativo", 60, 150);
+        super("Soldado Corporativo", 0, 0);
+
+        // TODO: Definir os atributos do soldado.
     }
 
     @Override
     public int calcularDano() {
-        ataquesRealizados++;
-
-        if (ataquesRealizados % 3 == 0) {
-            return 20;
-        }
-
-        return 12;
+        // TODO: Implementar os ataques do soldado.
+        return 0;
     }
 }

@@ -7,7 +7,6 @@ public abstract class Personagem {
     public Personagem(String nome, int vidaMaxima) {
         this.nome = nome;
         this.vidaMaxima = vidaMaxima;
-        this.vida = vidaMaxima;
     }
 
     public String getNome() {
@@ -23,19 +22,16 @@ public abstract class Personagem {
     }
 
     public boolean estaVivo() {
-        return vida > 0;
+        // TODO: Verificar se o personagem esta vivo.
+        return false;
     }
 
     public void receberDano(int dano) {
-        if (dano > 0) {
-            vida = Math.max(0, vida - dano);
-        }
+        // TODO: Implementar o sistema de dano.
     }
 
     protected void recuperarVida(int quantidade) {
-        if (quantidade > 0) {
-            vida = Math.min(vidaMaxima, vida + quantidade);
-        }
+        // TODO: Implementar a recuperacao de vida.
     }
 
     public abstract int calcularDano();

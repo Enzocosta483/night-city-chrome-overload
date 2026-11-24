@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Combate {
@@ -5,74 +6,96 @@ public class Combate {
     public static boolean iniciar(
             Jogador jogador,
             Inimigo inimigo,
-            Scanner scanner
-    ) {
+            Scanner scanner) {
 
-        System.out.println();
-        System.out.println("Inimigo encontrado: " + inimigo.getNome());
+        // TODO: Implementar o combate por turnos.
+        return false;
+    }
 
-        while (jogador.estaVivo() && inimigo.estaVivo()) {
+    static boolean iniciar(
+            Jogador jogador,
+            Inimigo inimigo,
+            Scanner scanner,
+            Random random) {
 
-            System.out.println();
-            System.out.println("=== COMBATE ===");
-            System.out.println("Seu HP: " + jogador.getVida());
-            System.out.println("HP inimigo: " + inimigo.getVida());
-            System.out.println("MaxDocs: " + jogador.getMaxDocs());
+        // TODO: Implementar o combate com sorteios.
+        return false;
+    }
 
+    private static Implante escolherHabilidade(
+            Jogador jogador,
+            Scanner scanner) {
+
+        // TODO: Selecionar uma habilidade equipada.
+        return null;
+    }
+
+    static boolean usarHabilidade(
+            Jogador jogador,
+            Inimigo inimigo,
+            Implante implante,
+            Random random) {
+
+        // TODO: Implementar as habilidades especiais.
+        // TODO: Implementar o risco de ciberpsicose.
+        // TODO: Implementar a ativacao da Capri.
+
+        return false;
+    }
+
+    // Menu demonstrativo do prototipo.
+    public static void exibirPrototipo(Scanner scanner) {
+
+        while (scanner.hasNextLine()) {
+
+            System.out.println("\n=== COMBATE ===");
             System.out.println("1 - Atacar");
             System.out.println("2 - Usar MaxDoc");
+            System.out.println("3 - Usar habilidade especial");
+            System.out.println("0 - Voltar");
             System.out.print("Escolha: ");
 
-            String escolha = scanner.nextLine();
+            int opcao = Main.lerOpcao(scanner);
 
-            if (escolha.equals("1")) {
+            switch (opcao) {
 
-                int dano = jogador.calcularDano();
-                inimigo.receberDano(dano);
+                case 1:
+                    System.out.println("Ataque - Em desenvolvimento.");
+                    break;
 
-                System.out.println("Voce causou " + dano + " de dano!");
+                case 2:
+                    System.out.println("MaxDoc - Em desenvolvimento.");
+                    break;
 
-            } else if (escolha.equals("2")) {
+                case 3:
+                    exibirHabilidades(scanner);
+                    break;
 
-                if (jogador.usarMaxDoc()) {
-                    System.out.println("MaxDoc utilizado! HP recuperado.");
-                } else {
-                    System.out.println("Nao foi possivel usar MaxDoc.");
-                    continue;
-                }
+                case 0:
+                    return;
 
-            } else {
-                System.out.println("Opcao invalida.");
-                continue;
+                default:
+                    System.out.println("Opcao invalida.");
             }
-
-            // Inimigos mortos nao podem atacar.
-            if (!inimigo.estaVivo()) {
-                break;
-            }
-
-            int danoInimigo = inimigo.calcularDano();
-            jogador.receberDano(danoInimigo);
-
-            System.out.println(
-                    inimigo.getNome() + " causou " +
-                            danoInimigo + " de dano!"
-            );
         }
+    }
 
-        if (jogador.estaVivo()) {
-            System.out.println("Inimigo derrotado!");
+    // Menu demonstrativo das habilidades.
+    private static void exibirHabilidades(Scanner scanner) {
 
-            jogador.ganharDinheiro(inimigo.getRecompensa());
+        System.out.println("\n=== HABILIDADES (DEMONSTRACAO) ===");
+        System.out.println("1 - Sandevistan");
+        System.out.println("2 - Mantis Blades");
+        System.out.println("3 - Capricorn (Capri)");
+        System.out.println("0 - Voltar");
+        System.out.print("Escolha: ");
 
-            System.out.println(
-                    "Recompensa: E$" + inimigo.getRecompensa()
-            );
+        int opcao = Main.lerOpcao(scanner);
 
-            return true;
+        if (opcao >= 1 && opcao <= 3) {
+            System.out.println("Habilidade - Em desenvolvimento.");
+        } else if (opcao != 0) {
+            System.out.println("Opcao invalida.");
         }
-
-        System.out.println("VOCE MORREU!");
-        return false;
     }
 }
